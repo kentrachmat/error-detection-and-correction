@@ -1,0 +1,28 @@
+COURS
+
+f(bit,bit,bit,bit,bit,bit,bit,bit)=(bit,bit,bit,bit,bit,bit,bit,bit,
+
+Les op\'erateurs | & ~  agissent sur les octets bits \`a bits.
+
+f(bit)=bit
+o1 o2 o3 r
+0  0  0  0
+0  0  1  0
+0  1  0  0	
+0  1  1  1  (~o1)&o2&o3 
+1  0  0  0
+1  0  1  1  (o1&(~o2)&o3)  
+1  1  0  1
+1  1  1  1
+
+disjonctive conjonctive
+	| selectionne les sorties \`a 1 
+	| pour chaque ligne on nie les entr\'ees \`a 0
+		(~o1)&o2&o3 
+	| pour finir on fait la conjonction de chaque ligne
+		((~o1)&o2&o3) |(o1&(~o2)&o3) | etc
+
+Si o1, o2, o3 sont des caract\`eres 
+char o1,o2,o3;
+char decode ;
+     decode = ((~o1)&(o2)&(o3)) |((o1)&(~o2)&(o3)) | etc  ;
